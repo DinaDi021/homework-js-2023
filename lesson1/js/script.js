@@ -1,4 +1,6 @@
 // hw_1.1
+// - Створити змінні. Присвоїти кожному з них значення: 'hello','owu','com', 'ua', 1, 10, -999, 123, 3.14, 2.7, 16, true, false.
+//     Вивести кожну змінну за допомогою: console.log
 
 let greetings = 'hello';
 console.log(greetings);
@@ -9,13 +11,13 @@ console.log(title);
 let linkOne = 'com';
 console.log(linkOne);
 
-let linkTwo ='ua';
+let linkTwo = 'ua';
 console.log(linkTwo);
 
 let numberA = 1;
 console.log(numberA);
 
-let numberB= 10;
+let numberB = 10;
 console.log(numberB);
 
 let numberC = -999;
@@ -40,6 +42,7 @@ let check2 = false;
 console.log(check2);
 
 // hw_1.2
+// Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ. З'єднати їх в одну змінну person (Не об'єкт, просто за допомоги конкатенації)
 
 let firstName = 'Diana';
 let middleName = 'Rostislavovna';
@@ -49,6 +52,8 @@ let person = `${firstName} ${middleName} ${lastName}`;
 console.log(person);
 
 // hw_1.3
+//- За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.
+//   let a = 100; let b = '100'; let c = true;
 
 let a = 100;
 console.log(typeof a, a);
@@ -60,11 +65,12 @@ let c = true;
 console.log(typeof c, c);
 
 
+//hw_1.4
+// За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками. та вивести в консоль
+
 let name = prompt('Enter your name')
-console.log(name);
-
 let surname = prompt('Enter your surname')
-console.log(surname);
+let age = parseInt(prompt('Enter your age'))
 
-let age = prompt('Enter your age')
-console.log(age);
+console.log(name + ' ' + surname + ' ' + age);
+console.log(typeof age);

@@ -3,7 +3,17 @@
 
 let arr;
 arr = [1, 2, 3, 4, 'five', 'six', 'seven', 'eight', true, 10];
-console.log(arr);
+
+console.log(arr [0]);
+console.log(arr [1]);
+console.log(arr [2]);
+console.log(arr [3]);
+console.log(arr [4]);
+console.log(arr [5]);
+console.log(arr [6]);
+console.log(arr [7]);
+console.log(arr [8]);
+console.log(arr [9]);
 
 // - Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre.
 
@@ -103,14 +113,16 @@ if (a === 1 || a === 0 || a === -3) {
 
 let time = +prompt('введіть час');
 
-if (time < 15) {
+if (time > 0 && time < 15) {
     console.log('число попадає в першу частину години');
-} else if (time < 30) {
+} else if (time > 15 && time < 30) {
     console.log('число попадає в другу частину години');
-} else if (time < 45) {
+} else if ( time > 30 && time < 45) {
     console.log('число попадає в третю частину години');
-} else {
+} else if ( time > 45 && time < 60) {
     console.log('число попадає в четверту частину години');
+} else {
+    console.log('?????');
 }
 
 // - У змінній day дано якесь число від 1 до 31. Потрібно визначити, у яку половину(декаду) місяця потрапляє це число
@@ -118,12 +130,14 @@ if (time < 15) {
 
 let date = +prompt('обери день');
 
-if (date <= 10) {
+if (date > 0 && date <= 10) {
     console.log('число попадає в першу декаду');
-} else if (date <= 20) {
+} else if (date >10 && date <= 20) {
     console.log('число попадає в другу декаду');
-} else {
+} else if (date >20 && date <= 31) {
     console.log('число попадає в третю декаду');
+} else {
+    console.log('???????')
 }
 
 
@@ -178,7 +192,7 @@ if (number1 > number2) {
 // за допомоги  оператора || буде присвоювати змінній х значення "default"  якщо значення змінної х являється falsy
 // (хибноподібні, тобто приводиться до false)
 
-let x1 = prompt('enter your value');
+let x1;
 x1 = x1 || 'default';
 console.log(x1);
 

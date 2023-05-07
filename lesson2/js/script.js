@@ -25,6 +25,22 @@ let book1 = {
 
 console.log(book1);
 
+let book12 = {
+    title: 'A Game of Thrones. A Song of Ice and Fire',
+    pageCount: 884,
+    genre: 'fantasy'
+}
+
+console.log(book12);
+
+let book13 = {
+    title: 'A Game of Thrones. A Song of Ice and Fire',
+    pageCount: 884,
+    genre: 'fantasy'
+}
+
+console.log(book13);
+
 // - Створити 3 об'єкти які описують книги. Поля об'єкту : title ,pageCount, genre, authors. Поле "автори" - являється  масивом.
 // Кожен автор має поля name та age.
 
@@ -33,7 +49,8 @@ let book2 = {
     pageCount: 288,
     genre: 'fantasy',
     authors: [
-        {name: 'George Orwell', age: 46}
+        {name: 'George Orwell', age: 46},
+        {name: 'name', age: 55}
     ]
 }
 
@@ -117,9 +134,9 @@ if (time > 0 && time < 15) {
     console.log('число попадає в першу частину години');
 } else if (time > 15 && time < 30) {
     console.log('число попадає в другу частину години');
-} else if ( time > 30 && time < 45) {
+} else if (time > 30 && time < 45) {
     console.log('число попадає в третю частину години');
-} else if ( time > 45 && time < 60) {
+} else if (time > 45 && time < 60) {
     console.log('число попадає в четверту частину години');
 } else {
     console.log('?????');
@@ -132,9 +149,9 @@ let date = +prompt('обери день');
 
 if (date > 0 && date <= 10) {
     console.log('число попадає в першу декаду');
-} else if (date >10 && date <= 20) {
+} else if (date > 10 && date <= 20) {
     console.log('число попадає в другу декаду');
-} else if (date >20 && date <= 31) {
+} else if (date > 20 && date <= 31) {
     console.log('число попадає в третю декаду');
 } else {
     console.log('???????')
@@ -231,5 +248,158 @@ if (coursesAndDurationArray [4] ['monthDuration'] >= 5) {
 
 if (coursesAndDurationArray [5] ['monthDuration'] >= 5) {
     console.log('Супер');
+}
+
+// Додаткові завдання
+
+//- Нам дано масив друзів let friends = ["Ivan", "Slavik", "Grisha", "Lera", "Ira"]; Потрібно зробити перевірку якщо
+//  кількість елементів у масиві більше або дорівнює 3, то виводиться повідомлення про те, що це великий масив,
+//  в якому  3 і більше елементи.
+//  Інакше слід вивести на екран повідомлення про те, що це маленький масив, в якому менше 3-х елементів.
+
+let friends = ["Ivan", "Slavik", "Grisha", "Lera", "Ira"];
+
+if (friends.length >= 3) {
+    console.log('це великий масив, в якому  3 і більше елементи');
+} else {
+    console.log('це маленький масив, в якому менше 3-х елементів');
+}
+
+
+//   - Маємо 3 числа і між ним  нам потрібно знайти те що посередині.
+//  Знайти, яке з них є середнім (більше одного, але менше за інше). Перевірити, чи знаходиться перше число між двома іншими.
+
+let b = +prompt('enter number');
+let c = +prompt('enter number');
+let d = +prompt('enter number');
+
+let middleNumber;
+
+if ((c < b && b < d) || (d < b && b < c)) {
+    middleNumber = b;
+} else if ((b < c && c < d) || (d < c && c < b)) {
+    middleNumber = c;
+} else if ((b < d && d < c) || (c < d && d < b)) {
+    middleNumber = d;
+} else {
+    console.log('error');
+}
+console.log(middleNumber);
+
+if ((c < b && b < d) || (d < b && b < c)) {
+    console.log('перше число знаходиться між двома іншими');
+} else {
+    console.log('перше число не знаходиться між двома іншими');
+}
+
+
+//   - Перепишіть конструкцію if з використанням умовного оператора '?':
+// let result;
+// if (a + b < 4) {
+//    result = 'Мало';
+// } else {
+//    result = 'Багато';
+// }
+
+let result = (a + b < 4) ? 'Мало' : 'Багато';
+
+console.log(result);
+
+
+//  - Маємо будь яке число від -100 , 0 , +100 потрібно перевірити яким є число: позитивним, негативним або нулем
+// напишіть це тернарним оператором
+
+let num = +prompt('enter number');
+
+num = num === 0 ? 'zero' :
+    num > 0 ? 'positive':
+    num < 0 ? 'negative' :
+        'error';
+console.log(num);
+
+
+// - У нас є змінна test, якщо дорівнює true, виведіть 'Вірно', інакше виведіть 'Неправильно'.
+// Перевірте роботу скрипта при test, що дорівнює true, false. Напишіть два варіанти скрипта - з коротким записом(тернаркою)
+
+let test;
+
+test = true;
+test ? console.log('Вірно') : console.log('Неправильно');
+test = false;
+test ? console.log('Вірно') : console.log('Неправильно');
+
+// - Використовуючи конструкцію if..else, напишіть код, який запитуватиме: „Яка «офіційна» назва JavaScript?“
+// Якщо користувач вводить «ECMAScript», то показати: «Правильно!», інакше – відобразити: «Не знаєте? ECMAScript!
+//
+
+let js = prompt('Яка «офіційна» назва JavaScript?');
+
+if (js === 'ECMAScript') {
+    console.log('Правильно!');
+} else {
+    console.log('Не знаєте? ECMAScript!')
+}
+
+//  - У першому під'їзді квартири з 1 до 20. У другому з 21 по 48. У третьому з 49 по 90.
+// Користувач вводить номер квартири просто в змінні або через prompt('') .
+// Програма повинна зазначити, в якому під'їзді знаходиться дана квартира.
+
+let apartment = +prompt('введіть номер квартири');
+
+if (apartment > 0 && apartment <= 20) {
+    console.log('квартира знаходиться в 1 під\'їзді');
+} else if (apartment > 20 && apartment <= 48) {
+    console.log('квартира знаходиться в 2 під\'їзді');
+} else if (apartment > 48 && apartment <= 90) {
+    console.log('квартира знаходиться в 3 під\'їзді');
+} else {
+    console.log('???????')
+}
+
+// - Ми маємо змінну number в яку користувач задає числове значення,  якщо змінна рівна 10 вивести повідомлення ВІРНО,
+// якщо змінна не рівна 10 - тоді НЕВІРНО
+
+let x5 = +prompt('введіть число');
+
+if(x5 === 10) {
+    console.log('ВІРНО')
+} else {
+    console.log('НЕВІРНО')
+}
+
+// - Задача-гра "чи ми йдемо сьогодні в OKTEN на навчання?".
+// Змінна, яка характеризує температуру. Якщо температура від +10 до +22 вивести повідомлення що ми йдемо ВЧИТИСЯ .
+// Якщо інша темпаретура, тоді виводимо повідомлення що сидимо вдома і вчимося ОНЛАЙН
+
+let temp =  +prompt('чи ми йдемо сьогодні в OKTEN на навчання? Яка зараз температура?');
+
+if (temp >= 10 && temp <= 22) {
+    console.log('ми йдемо ВЧИТИСЯ');
+} else {
+    console.log('сидимо вдома і вчимося ОНЛАЙН')
+}
+
+//  - За допомогою switch case - реалізувати гру - вікторину, де ми вводимо число від 1 до 5. І взалежності від введеного
+// числа нам дається приз. (Авто, Мото, Телефон, і т.д ) і якщо число не підходить тоді  вивести Повідомлення - що число не вірне ... .
+
+let game = prompt('enter number for the game');
+switch (game) {
+    case "1":
+        console.log('Авто');
+        break;
+    case "2":
+        console.log('Квартира');
+        break;
+    case "3":
+        console.log('Мотоцикл');
+        break;
+    case "4":
+        console.log('Телефон');
+        break;
+    case "5":
+        console.log('Xbox');
+        break;
+    default:
+        console.log('число не вірне');
 }
 

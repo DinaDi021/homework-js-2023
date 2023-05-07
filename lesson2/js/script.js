@@ -324,6 +324,20 @@ console.log(num);
 let test;
 
 test = true;
+if (test === true) {
+    console.log('Вірно');
+} else {
+    console.log('Неправильно');
+}
+
+test = false;
+if (test === false) {
+    console.log('Вірно');
+} else {
+    console.log('Неправильно');
+}
+
+test = true;
 test ? console.log('Вірно') : console.log('Неправильно');
 test = false;
 test ? console.log('Вірно') : console.log('Неправильно');

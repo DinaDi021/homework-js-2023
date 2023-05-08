@@ -324,14 +324,14 @@ console.log(num);
 let test;
 
 test = true;
-if (test === true) {
+if (test) {
     console.log('Вірно');
 } else {
     console.log('Неправильно');
 }
 
 test = false;
-if (test === false) {
+if (!test) {
     console.log('Вірно');
 } else {
     console.log('Неправильно');

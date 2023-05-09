@@ -47,16 +47,15 @@ while (i1 < 20) {
 
 let listOfItems = ['html', 'css', 'javascript', 'mysql', 'mongodb', 'react', 'angular', 'node.js'];
 
-let str = '<ul>';
+
+document.write(`<ul>`);
 
 for (let i = 0; i < listOfItems.length; i++){
     const listOfItem = listOfItems[i];
+    document.write(`<li>${listOfItems[i]}</li>`)
 }
 
-str += '</ul>';
-
-document.write(`<li>${listOfItems[i]}</li>`)
-
+document.write(`</ul>`);
 
 // -----------------------------------------------
 //

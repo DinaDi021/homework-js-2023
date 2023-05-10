@@ -268,17 +268,35 @@ for (let i = 1; i <= 10; i++) {
 
 // - Створити цикл for на 100 ітерацій з кроком 1. Вивести поточний номер кроку через console.log та document.write
 
-for (let i = 1; i <= 100; i++) {
-    console.log(i);
-    document.write(i + '<br>');
+for (let j = 1; j <= 100; j++) {
+    console.log(j);
+    document.write(j + '<br>');
 }
 
 // - Створити цикл for на 100 ітерацій з кроком 2. Вивести поточний номер кроку через console.log та document.write
+
+let iter = 0;
+for (let j = 0; j < 200; j+=2) {
+    console.log(++iter);
+    document.write((iter) + '<br>');
+}
+
+
 // - Створити цикл for на 100 ітерацій. Вивести тільки парні кроки. через console.log + document.write
+
+for (let j = 2; j <= 100; j+=2) {
+    console.log(j);
+    document.write(j + '<br>');
+}
+
 // - Створити цикл for на 100 ітерацій. Вивести тільки непарні кроки. через console.log + document.write
-//
-//
-//
+
+for (let j = 1; j <= 100; j+=2) {
+    console.log(j);
+    document.write(j + '<br>');
+}
+
+
 // стоврити масив книжок (назва, кількість сторінок, автори , жанри).
 // -знайти наібльшу книжку.
 // - знайти книжку/ки з найбільшою кількістю жанрів

@@ -1,38 +1,26 @@
 // - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б
 
-function calcTriangle(a, b, action) {
-    let result;
-    switch (action) {
-        case '*':
-            result = a * b;
-            break;
-        default:
-            return '???????';
-    }
-    return result;
+function calcTriangle(a, b) {
+    return a * b;
 }
 
-let resTriangle = calcTriangle(16, 25, '*');
+let resTriangle = calcTriangle(16, 25);
 console.log(resTriangle);
 
 // - створити функцію яка обчислює та повертає площу кола з радіусом r
 
-function calcCircle(pi, r) {
-    let result = pi * r * r;
-    return result;
+function calcCircle(r) {
+    return Math.PI * r * r;
 }
 
-const pi = 3.14159;
-let resCircle = calcCircle(pi, 5);
+let resCircle = calcCircle(5);
 console.log(resCircle);
-
 
 // - створити функцію яка обчислює та повертає площу циліндру висотою h, та радіутом r
 
 function calcCylinder(r, h) {
-    const pi = 3.14159;
-    const baseArea = pi * r * r;
-    const sideSurfaceArea = 2 * pi * r * h;
+    const baseArea = Math.PI * r * r;
+    const sideSurfaceArea = 2 * Math.PI * r * h;
     const area = 2 * baseArea + sideSurfaceArea;
     return area;
 }
@@ -64,7 +52,7 @@ addParagraph('blablablabla', 'p');
 
 function list(text, tag) {
     document.write('<ul>');
-    document.write(`<${tag}>${text}<${tag}>`);
+    document.write(`<${tag}>${text}</${tag}>`);
     document.write('</ul>');
 }
 
@@ -78,7 +66,7 @@ list('blablablabla', 'li');
 function itemList(text, tag) {
     document.write('<ul>');
     for (let i = 0; i < 3; i++) {
-        document.write(`<${tag}>${text}<${tag}>`);
+        document.write(`<${tag}>${text}</${tag}>`);
     }
     document.write('</ul>');
 }
@@ -103,33 +91,29 @@ printerArr(arr2);
 
 // - створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
 
+let users = [
+    {name: 'vasya', age: 31, status: false, id: 1},
+    {name: 'petya', age: 30, status: true, id: 2},
+    {name: 'kolya', age: 29, status: true, id: 3},
+    {name: 'olya', age: 28, status: false, id: 4},
+    {name: 'max', age: 30, status: true, id: 5},
+    {name: 'anya', age: 31, status: false, id: 6},
+    {name: 'oleg', age: 28, status: false, id: 7},
+    {name: 'andrey', age: 29, status: true, id: 8},
+    {name: 'masha', age: 30, status: true, id: 9},
+    {name: 'olya', age: 31, status: false, id: 10},
+];
+
 function addArrFilter(array) {
     let filteredUsers = [];
     for (const user of array) {
         if (user.id || user.name || user.age) {
             filteredUsers.push(user);
-            document.write(`<div>id: ${user.id ? user.id : ''}, name: ${user.name ? user.name : ''}, age: ${user.age ? user.age : ''}</div>`);
+            document.write(`<div>id:${user.id},  name:${user.name}, age:${user.age}</div>`);
         }
     }
     return filteredUsers;
 }
-
-let users = [
-    {name: 'vasya', age: 31, status: false, id: 1},
-    {name: 'petya', age: 30, status: true},
-    {name: 'kolya', age: 29, status: true, id: 2},
-    {name: 'olya', age: 28, status: false},
-    {name: 'max', age: 30, status: true, id: 3},
-    {name: 'anya', age: 31, status: false},
-    {name: 'oleg', age: 28, status: false},
-    {name: 'andrey', age: 29, status: true},
-    {name: 'masha', age: 30, status: true},
-    {name: 'olya', age: 31, status: false},
-    {price: 935, valua: 'UAH', category: 'make-up', brand: 'wishtrend'},
-    {price: 1075, valua: 'UAH', category: 'make-up', brand: 'hemish'},
-    {price: 935, valua: 'UAH', category: 'make-up', brand: 'bueno'},
-    {price: 935, valua: 'UAH', category: 'make-up', brand: 'wishtrend'}
-];
 
 addArrFilter(users);
 

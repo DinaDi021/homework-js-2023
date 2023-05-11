@@ -5,15 +5,13 @@
 // - та вивести його в консоль
 //
 
-let arr1 = [55, 45, 48, 100, -2];
+let arr1 = [
+    [55, 45, 48, 100, -2],
+    ['korsbeauty', 'ewa', 'capcut', '26', 'youtube'],
+    ['netflix', 'hdrezka', '25', '101', 'true']
+];
+
 console.log(arr1);
-
-let arr2 = ['korsbeauty', 'ewa', 'capcut', '26', 'youtube'];
-console.log(arr2);
-
-let arr3 = ['netflix', 'hdrezka', 25, 101, true];
-console.log(arr3);
-
 
 // -- Створити пустий масив. Наповнити його будь-якими значеннями звертаючись до конкретного індексу. Вивести в консоль
 
@@ -276,7 +274,7 @@ for (let j = 1; j <= 100; j++) {
 // - Створити цикл for на 100 ітерацій з кроком 2. Вивести поточний номер кроку через console.log та document.write
 
 let iter = 0;
-for (let j = 0; j < 200; j+=2) {
+for (let j = 0; j < 200; j += 2) {
     console.log(++iter);
     document.write((iter) + '<br>');
 }
@@ -284,14 +282,14 @@ for (let j = 0; j < 200; j+=2) {
 
 // - Створити цикл for на 100 ітерацій. Вивести тільки парні кроки. через console.log + document.write
 
-for (let j = 2; j <= 100; j+=2) {
+for (let j = 2; j <= 100; j += 2) {
     console.log(j);
     document.write(j + '<br>');
 }
 
 // - Створити цикл for на 100 ітерацій. Вивести тільки непарні кроки. через console.log + document.write
 
-for (let j = 1; j <= 100; j+=2) {
+for (let j = 1; j <= 100; j += 2) {
     console.log(j);
     document.write(j + '<br>');
 }

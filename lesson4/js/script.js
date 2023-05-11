@@ -125,10 +125,6 @@ let users = [
     {name: 'andrey', age: 29, status: true},
     {name: 'masha', age: 30, status: true},
     {name: 'olya', age: 31, status: false},
-    {price: 935, valua: 'UAH', category: 'make-up', brand: 'wishtrend'},
-    {price: 1075, valua: 'UAH', category: 'make-up', brand: 'hemish'},
-    {price: 935, valua: 'UAH', category: 'make-up', brand: 'bueno'},
-    {price: 935, valua: 'UAH', category: 'make-up', brand: 'wishtrend'}
 ];
 
 addArrFilter(users);

@@ -138,12 +138,53 @@ console.log(foobar(10, 55));
 // результат
 //     [3,5,7,9]
 
+arr1 = [1, 2, 3, 4 , 5];
+arr2 = [10, 20, 30, 40, 50, 60];
 
+function sumArr (array1, array2) {
+    let maxLenght = array1.length > array2.length ? array1.length : array2.length;
+    let result = [];
+    for (let i = 0; i < maxLenght; i++) {
+        result[i] = (array1[i] !== undefined ? array1[i] : 0)
+            +
+            (array2[i] !== undefined ? array2[i] : 0);
+    }
+    return result;
+}
+
+console.log(sumArr(arr1, arr2, ));
 
 // - Створити функцію яка приймає масив будь яких объектів, та повертає масив ключів всіх обєктів
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ name, age, model ]
-//
+
+
+let users = [{name: 'Dima', age: 13}, {model: 'Camry'}]
+
+function getKey(array){
+    let keys = [];
+    for (const obj of array) {
+        for (const key in obj) {
+            keys[keys.length] = key;
+        }
+    }
+    return keys;
+}
+
+console.log(getKey(users));
+
 //     - Створити функцію яка приймає масив будь яких объектів, та повертає масив значень всіх обєктів
 // EXAMPLE:
 //     [{name: 'Dima', age: 13}, {model: 'Camry'}]  ===> [ Dima, 13, Camry ]
+
+function getValue(array){
+    let keys = [];
+    for (const obj of array) {
+        for (const key in obj) {
+            keys[keys.length] = obj[key];
+        }
+    }
+    return keys;
+}
+
+console.log(getValue(users));

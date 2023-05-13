@@ -50,28 +50,30 @@ addParagraph('blablablabla', 'p');
 
 // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
 
-function list(text, tag) {
-    document.write('<ul>');
-    document.write(`<${tag}>${text}</${tag}>`);
-    document.write('</ul>');
+function list(text) {
+    document.write(`
+        <ul>
+            <li>${text}</li>
+            <li>${text}</li>
+            <li>${text}</li>
+        </ul>
+    `);
 }
 
-list('blablablabla', 'li');
-list('blablablabla', 'li');
-list('blablablabla', 'li');
+list('blablablabla');
 
 // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий.
 // Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
 
-function itemList(text, tag) {
+function itemList(text, count) {
     document.write('<ul>');
-    for (let i = 0; i < 3; i++) {
-        document.write(`<${tag}>${text}</${tag}>`);
+    for (let i = 0; i < count; i++) {
+        document.write(`<li>${text}</li>`);
     }
     document.write('</ul>');
 }
 
-itemList('blablablabla', 'li');
+itemList('blablablabla', 3);
 
 // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 
@@ -117,7 +119,6 @@ function addArrFilter(array) {
 
 addArrFilter(users);
 
-
 // - створити функцію яка повертає найменьше число з масиву
 
 function minNumber(num) {
@@ -136,13 +137,13 @@ console.log(minNumber(arr3));
 
 // - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад sum([1,2,10]) //->13
 
-function sum (arr) {
-        let sum = 0;
-        for (let i = 0; i < arr.length; i++) {
-            sum += arr[i];
-        }
-        return sum;
+function sum(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
     }
+    return sum;
+}
 
 console.log(sum(arr3));
 
@@ -172,4 +173,4 @@ function exchange(sumUAH, currencyValues, exchangeCurrency) {
     return sum;
 }
 
-console.log(exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD'));
+console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'USD'));

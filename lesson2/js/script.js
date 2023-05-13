@@ -49,7 +49,7 @@ let book2 = {
     pageCount: 288,
     genre: 'fantasy',
     authors: [
-        {name: 'George Orwell', age: 46},
+        {name: 'Andrzej Sapkowski', age: 46},
         {name: 'name', age: 55}
     ]
 }
@@ -61,7 +61,7 @@ let book3 = {
     pageCount: 448,
     genre: 'fantasy',
     authors: [
-        {name: 'Andrzej Sapkowski', age: 74}
+        {name: 'J. R. R. Tolkien', age: 74}
     ]
 }
 console.log(book3);
@@ -71,7 +71,7 @@ let book4 = {
     pageCount: 110,
     genre: 'fantasy',
     authors: [
-        {name: 'J. R. R. Tolkien', age: 81}
+        {name: 'Lewis Carroll', age: 81}
     ]
 }
 

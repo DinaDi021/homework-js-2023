@@ -296,8 +296,93 @@ for (let j = 1; j <= 100; j += 2) {
 
 
 // стоврити масив книжок (назва, кількість сторінок, автори , жанри).
+
+let arrBook = [
+    {title: 'A Game of Thrones. A Song of Ice and Fire', pageCount: 884, authors: 'George R. R. Martin', genre: 'Fantasy'},
+    {title: 'The Witcher: The Last Wish', pageCount: 288, authors: 'Andrzej Sapkowski', genre: 'fantasy'},
+    {title: 'The Lord of the Rings. The Fellowship of the Ring', pageCount: 448, authors: 'J. R. R. Tolkien', genre: 'Fantasy'},
+    {title: 'Alice\'s Adventures in Wonderland', pageCount: 110, authors: 'Lewis Carroll', genre: 'Fantasy'},
+    {title: 'The Hobbit, or There and Back Again', pageCount: 400, authors: 'J. R. R. Tolkien', genre: 'Fantasy'},
+    {title: 'Pride and Prejudice', pageCount: 500, authors: 'Jane Austen', genre: 'Romance'},
+    {title: 'His Dark Materials', pageCount: 600, authors: 'Philip Pullman', genre: 'Fantasy'},
+    {title: 'Harry Potter and the Philosopher\'s Stone', pageCount: 750, authors: 'J. K. Rowling', genre: 'Fantasy'},
+    {title: 'They Used to Play on Grass', pageCount: 290, authors: 'Terry Venables, Gordon Williams', genre: 'Sport, adult fiction'},
+    {title: 'The Diary of a Nobody', pageCount: 305, authors: 'George Grossmith, Weedon Grossmith', genre: 'Comic'}
+]
+
+let bookIndex = 0;
+
 // -знайти наібльшу книжку.
+
+let maxPageCount = 0;
+
+for (let i = 0; i <arrBook.length; i++) {
+    if(arrBook[i].pageCount > maxPageCount) {
+        maxPageCount = arrBook[i].pageCount;
+        bookIndex = i;
+    }
+}
+
+console.log(arrBook[bookIndex]);
+
 // - знайти книжку/ки з найбільшою кількістю жанрів
+
+let maxGenres = 0;
+for (let i = 0; i < arrBook.length; i ++){
+    if(arrBook[i].genre.length > maxGenres) {
+         maxGenres = arrBook[i].genre.length;
+         bookIndex = i;
+    }
+}
+
+console.log(arrBook[bookIndex]);
+
 // - знайти книжку/ки з найдовшою назвою
+
+let maxTitleLength = arrBook[0].title.length;
+for (let i = 0; i < arrBook.length; i++) {
+    if (arrBook[i].title.length > maxTitleLength) {
+        maxTitleLength = arrBook[i].title.length;
+        bookIndex = i;
+    }
+}
+
+console.log(arrBook[bookIndex].title);
+
 // - знайти книжку/ки які писали 2 автори
+
+let resArray = [];
+for (let j= 0; j < arrBook.length; j++) {
+    let numberOfComas = 0;
+    for(let i = 0; i < arrBook[j].authors.length; i++){
+        if(arrBook[j].authors[i] === ','){
+            numberOfComas++;
+        }
+    }
+    if (numberOfComas === 1){
+        resArray.push(j);
+    }
+}
+
+for(let i = 0; i < resArray.length; i++){
+    console.log(arrBook[resArray[i]].title);
+}
+
 // - знайти книжку/ки які писав 1 автор
+
+let resArrayOneAuthors = [];
+for (let i = 0; i <arrBook.length; i++) {
+    let numberofComas = 0;
+    for (let j = 0; j < arrBook[i].authors.length; j++) {
+        if(arrBook[i].authors[j] === ',') {
+            numberofComas++
+        }
+    }
+    if (numberofComas === 0){
+        resArrayOneAuthors.push(i);
+    }
+}
+
+for (let i = 0; i < resArrayOneAuthors.length; i++) {
+    console.log(arrBook[resArrayOneAuthors[i]].title)
+}

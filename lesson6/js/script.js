@@ -120,12 +120,6 @@ console.log(map1);
 
 // =========================
 //     описати колоду карт (від 6 до туза без джокерів)
-// - знайти піковий туз
-// - всі шістки
-// - всі червоні карти
-// - всі буби
-// - всі трефи від 9 та більше
-//
 // {
 //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
 //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
@@ -170,6 +164,41 @@ let cards = [
     { cardSuit: 'heart', value: 'ace', color: 'red' },
     { cardSuit: 'clubs', value: 'ace', color: 'black' },
 ];
+
+// - знайти піковий туз
+
+let filterSpadeAce = cards.filter(card => {
+    return card.cardSuit === 'spade' && card.value === 'ace'
+});
+console.log(filterSpadeAce);
+
+// - всі шістки
+
+let filterValueSix = cards.filter(card => {
+    return card.value === '6'
+});
+console.log(filterValueSix);
+
+// - всі червоні карти
+
+let filterRedCards = cards.filter(card => {
+    return card.color === 'red'
+})
+console.log(filterRedCards);
+
+// - всі буби
+
+let filterDiamond = cards.filter(card => {
+    return card.cardSuit === 'diamond'
+})
+console.log(filterDiamond);
+
+// - всі трефи від 9 та більше
+
+let filterClubsFromNine = cards.filter(card => {
+    return card.cardSuit === 'clubs' && (card.value >= '9' || parseInt(card.value) >= 9)
+})
+console.log(filterClubsFromNine)
 
 //     Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
 // {

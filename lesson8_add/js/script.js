@@ -245,7 +245,6 @@ class UserAccount {
         }
         getCardByKey(number) {
             if (number > 0 && number <= 3){
-                //let keyCard = 0;
                 for (let card of this.cards){
                     if(card.key === number){
                         return card;

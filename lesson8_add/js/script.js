@@ -251,12 +251,6 @@ class UserAccount {
                         return card;
                     }
                 }
-                /*for (let i = 0; i < this.cards.length; i++) {
-                    if (this.cards.key[i] === number) {
-                        keyCard = this.cards.key[i];
-                    }
-                    return keyCard
-                }*/
             }
         }
 }

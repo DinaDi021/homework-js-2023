@@ -57,41 +57,40 @@ function buildArr(){
 
 let arrNum = buildArr();
 
-let lastIndex = arrNum.length - 1;
-let firstIndex = arrNum[0];
-let step = 10;
 
+document.addEventListener('DOMContentLoaded', function(e) {
+    function showElements() {
+        let numberDiv = document.createElement('div');
+        for (let i = 0; i < 10; i++) {
+            let element = arrNum[i];
+            let arrElement = document.createElement('div');
+            arrElement.innerText = element;
+            numberDiv.appendChild(arrElement);
+            document.body.appendChild(numberDiv);
+        }
+    }
 
-// document.addEventListener('DOMContentLoaded', function(e) {
-//
-//     showElements(currentStartIndex);
-// });
-//
-// function showElements(startElement) {
-//     let numberDiv = document.createElement('div');
-//     for (let i = startElement; i < startElement + 10 && i < arrNum.length; i++) {
-//         let element = arrNum[i];
-//         let arrElement = document.createElement('div');
-//         arrElement.innerText = element;
-//         numberDiv.appendChild(arrElement);
-//     }
-//     document.body.appendChild(numberDiv);
-// }
-//
-// let btnDiv = document.createElement('div');
-//
-// let btnPrev = document.createElement('button');
-// btnPrev.innerText = `prev`;
-// btnPrev.disabled = true;
-//
-// let btnNext = document.createElement('button');
-// btnNext.innerText = `next`;
-//
-// btnDiv.append(btnPrev, btnNext);
-// document.body.appendChild(btnDiv);
-//
-// let currentStartIndex = 0;
-// localStorage.setItem('number', currentStartIndex.toString());
+    showElements()
+
+    let btnDiv = document.createElement('div');
+
+    let btnPrev = document.createElement('button');
+    btnPrev.innerText = `prev`;
+    btnPrev.disabled = true;
+
+    let btnNext = document.createElement('button');
+    btnNext.innerText = `next`;
+
+    btnDiv.append(btnPrev, btnNext);
+    document.body.appendChild(btnDiv);
+
+    localStorage.setItem("currentStartIndex", "0");
+
+    let currentStartIndex = localStorage.getItem("currentStartIndex");
+});
+
+let currentStartIndex = parseInt(localStorage.getItem("currentStartIndex")) || 0;
+
 //
 // btnPrev.addEventListener('click', function() {
 //     localStorage.getItem('number')

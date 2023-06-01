@@ -9,5 +9,20 @@
 </head>
 <body>
 
+<div id="sessionsContainer"></div>
+
+<script>
+    document.body.onload = function (e) {
+        let arrSessions = JSON.parse(localStorage.getItem('sessions')) || [];
+        let sessionsContainer = document.getElementById('sessionsContainer');
+
+        for (let session of arrSessions) {
+            let sessionElement = document.createElement('div');
+            sessionElement.textContent = session;
+            sessionsContainer.appendChild(sessionElement);
+        }
+    };
+</script>
+
 </body>
 </html>

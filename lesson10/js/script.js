@@ -10,23 +10,23 @@ form1.onsubmit = function (e) {
         age: this.age.value
     }
     let infoDiv = document.createElement('div');
-    infoDiv.textContent = JSON.stringify(obj);
+    infoDiv.innerText = JSON.stringify(obj);
     document.body.appendChild(infoDiv);
 }
 
 // ==========================
 // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
 
-document.addEventListener('DOMContentLoaded', function(e) {
+document.addEventListener('DOMContentLoaded', function() {
     let numberEl = document.getElementById('number');
 
     if (localStorage.getItem('number')) {
         let number = parseInt(localStorage.getItem('number'));
         let numberPlusOne = number + 1;
-        numberEl.textContent = numberPlusOne.toString();
+        numberEl.innerText = numberPlusOne.toString();
         localStorage.setItem('number', numberPlusOne.toString());
     } else {
-        numberEl.textContent = '1';
+        numberEl.innerText = '1';
         localStorage.setItem('number', '1');
     }
 });
@@ -35,21 +35,104 @@ document.addEventListener('DOMContentLoaded', function(e) {
 // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessions зберігається інформація про дату та час
 // відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування
 // сторінки index.html. Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
-
+    document.addEventListener('DOMContentLoaded', function (e) {
+    let arrSessions = JSON.parse(localStorage.getItem('sessions')) || [];
+    arrSessions.push(new Date().toLocaleString());
+    localStorage.setItem('sessions', JSON.stringify(arrSessions));
+});
 
 // =========================
 //     зробити масив на 100 об'єктів та дві кнопки prev next
 // при завантажені сторінки з'являються перші 10 об'єктів.
 //     При натисканні next виводяться настпні 10 об'єктів
 // При натисканні prev виводяться попередні 10 об'єктів
+
+function buildArr(){
+    let arrNum1 = [];
+    for (let i = 1; i <= 100; i++) {
+        arrNum1.push(i)
+    }
+    return arrNum1;
+}
+
+let arrNum = buildArr();
+
+let lastIndex = arrNum.length - 1;
+let firstIndex = arrNum[0];
+let step = 10;
+
+
+// document.addEventListener('DOMContentLoaded', function(e) {
 //
+//     showElements(currentStartIndex);
+// });
+//
+// function showElements(startElement) {
+//     let numberDiv = document.createElement('div');
+//     for (let i = startElement; i < startElement + 10 && i < arrNum.length; i++) {
+//         let element = arrNum[i];
+//         let arrElement = document.createElement('div');
+//         arrElement.innerText = element;
+//         numberDiv.appendChild(arrElement);
+//     }
+//     document.body.appendChild(numberDiv);
+// }
+//
+// let btnDiv = document.createElement('div');
+//
+// let btnPrev = document.createElement('button');
+// btnPrev.innerText = `prev`;
+// btnPrev.disabled = true;
+//
+// let btnNext = document.createElement('button');
+// btnNext.innerText = `next`;
+//
+// btnDiv.append(btnPrev, btnNext);
+// document.body.appendChild(btnDiv);
+//
+// let currentStartIndex = 0;
+// localStorage.setItem('number', currentStartIndex.toString());
+//
+// btnPrev.addEventListener('click', function() {
+//     localStorage.getItem('number')
+//     if (currentStartIndex > 0) {
+//         currentStartIndex -= 10;
+//         showElements(currentStartIndex);
+//         btnNext.disabled = false;
+//         if (currentStartIndex === 0) {
+//             btnPrev.disabled = true;
+//         }
+//     }
+// });
+//
+// btnNext.addEventListener('click', function() {
+//     localStorage.getItem('number')
+//     if (currentStartIndex + 10 < arrNum.length) {
+//         currentStartIndex += 10;
+//         showElements(currentStartIndex);
+//         btnPrev.disabled = false;
+//         if (currentStartIndex + 10 >= arrNum.length) {
+//             btnNext.disabled = true;
+//         }
+//     }
+// });
 
 //
-// - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".
-//
-//
-//     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
-//
+// - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав
+// елемент з id="text".
+
+let elementId = document.getElementById('text');
+
+let btnText = document.getElementById('btn_text');
+btnText.addEventListener('click', function() {
+    elementId.style.display = 'none';
+});
+
+//     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту
+//     та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
+
+
+
 //
 // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.

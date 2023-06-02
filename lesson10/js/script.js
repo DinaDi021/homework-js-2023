@@ -175,3 +175,24 @@ formTable.addEventListener('submit', function (e){
 // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
 //     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
 //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    let moneyEl = document.getElementById('money');
+
+    let data = localStorage.getItem('time');
+    let dataAtMoment = new Date().getTime();
+
+    if(dataAtMoment - parseInt(data) > 10000) {
+        if (localStorage.getItem('money')) {
+            let money = parseInt(localStorage.getItem('money'));
+            let moneyPlus = number + 10;
+            moneyEl.innerText = moneyPlus.toString();
+            localStorage.setItem('money', moneyPlus.toString());
+        } else {
+            moneyEl.innerText = '100';
+            localStorage.setItem('money', '100');
+        }
+        localStorage.setItem('time', dataAtMoment.toString());
+    }
+});

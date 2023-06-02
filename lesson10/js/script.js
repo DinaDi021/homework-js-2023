@@ -17,7 +17,7 @@ form1.onsubmit = function (e) {
 // ==========================
 // є сторінка, на якій є блок, я кому знаходиьтся цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     let numberEl = document.getElementById('number');
 
     if (localStorage.getItem('number')) {
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Є сторінка index.html (назва довільна), при відвідуванні якої в локальне сховще, в масив sessions зберігається інформація про дату та час
 // відвідування сторінки. Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно відмалювати всю інформацію про відвідування
 // сторінки index.html. Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
-    document.addEventListener('DOMContentLoaded', function (e) {
+document.addEventListener('DOMContentLoaded', function (e) {
     let arrSessions = JSON.parse(localStorage.getItem('sessions')) || [];
     arrSessions.push(new Date().toLocaleString());
     localStorage.setItem('sessions', JSON.stringify(arrSessions));
@@ -47,74 +47,68 @@ document.addEventListener('DOMContentLoaded', function() {
 //     При натисканні next виводяться настпні 10 об'єктів
 // При натисканні prev виводяться попередні 10 об'єктів
 
-function buildArr(){
+function buildArr() {
     let arrNum1 = [];
     for (let i = 1; i <= 100; i++) {
-        arrNum1.push(i)
+        arrNum1.push(i);
     }
     return arrNum1;
 }
 
 let arrNum = buildArr();
+let numberDiv = document.createElement('div');
 
-
-document.addEventListener('DOMContentLoaded', function(e) {
-    function showElements() {
-        let numberDiv = document.createElement('div');
-        for (let i = 0; i < 10; i++) {
-            let element = arrNum[i];
-            let arrElement = document.createElement('div');
-            arrElement.innerText = element;
-            numberDiv.appendChild(arrElement);
-            document.body.appendChild(numberDiv);
-        }
+function showElements(currentStartIndex) {
+    numberDiv.innerText = '';
+    for (let i = currentStartIndex; i < currentStartIndex + 10; i++) {
+        let element = arrNum[i];
+        let arrElement = document.createElement('div');
+        arrElement.innerText = element;
+        numberDiv.appendChild(arrElement);
     }
+}
 
-    showElements()
+let btnDiv = document.createElement('div');
 
-    let btnDiv = document.createElement('div');
+let btnPrev = document.createElement('button');
+btnPrev.innerText = 'prev';
+btnPrev.disabled = true;
 
-    let btnPrev = document.createElement('button');
-    btnPrev.innerText = `prev`;
-    btnPrev.disabled = true;
+let btnNext = document.createElement('button');
+btnNext.innerText = 'next';
 
-    let btnNext = document.createElement('button');
-    btnNext.innerText = `next`;
+btnDiv.append(btnPrev, btnNext);
+document.body.appendChild(btnDiv);
 
-    btnDiv.append(btnPrev, btnNext);
-    document.body.appendChild(btnDiv);
-
-    localStorage.setItem("currentStartIndex", "0");
-
-    let currentStartIndex = localStorage.getItem("currentStartIndex");
+let currentStartIndex = parseInt(localStorage.getItem('currentStartIndex'));
+document.addEventListener('DOMContentLoaded', function (e) {
+    showElements(currentStartIndex);
 });
 
-let currentStartIndex = parseInt(localStorage.getItem("currentStartIndex")) || 0;
+btnNext.addEventListener('click', function () {
+    if (currentStartIndex + 10 < arrNum.length) {
+        currentStartIndex += 10;
+        showElements(currentStartIndex);
+        btnPrev.disabled = false;
+    } else if (currentStartIndex + 10 === arrNum.length) {
+        btnNext.disabled = true;
+    }
+    localStorage.setItem('currentStartIndex', currentStartIndex.toString());
+});
 
-//
-// btnPrev.addEventListener('click', function() {
-//     localStorage.getItem('number')
-//     if (currentStartIndex > 0) {
-//         currentStartIndex -= 10;
-//         showElements(currentStartIndex);
-//         btnNext.disabled = false;
-//         if (currentStartIndex === 0) {
-//             btnPrev.disabled = true;
-//         }
-//     }
-// });
-//
-// btnNext.addEventListener('click', function() {
-//     localStorage.getItem('number')
-//     if (currentStartIndex + 10 < arrNum.length) {
-//         currentStartIndex += 10;
-//         showElements(currentStartIndex);
-//         btnPrev.disabled = false;
-//         if (currentStartIndex + 10 >= arrNum.length) {
-//             btnNext.disabled = true;
-//         }
-//     }
-// });
+btnPrev.addEventListener('click', function () {
+    if (currentStartIndex >= 10) {
+        currentStartIndex -= 10;
+        showElements(currentStartIndex);
+        btnNext.disabled = false;
+    }
+    if (currentStartIndex === 0) {
+        btnPrev.disabled = true;
+    }
+    localStorage.setItem('currentStartIndex', currentStartIndex.toString());
+});
+
+document.body.appendChild(numberDiv);
 
 //
 // - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав
@@ -123,19 +117,36 @@ let currentStartIndex = parseInt(localStorage.getItem("currentStartIndex")) || 0
 let elementId = document.getElementById('text');
 
 let btnText = document.getElementById('btn_text');
-btnText.addEventListener('click', function() {
+btnText.addEventListener('click', function () {
     elementId.style.display = 'none';
 });
 
 //     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту
 //     та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
 
+let btnAge = document.getElementById('buttonAge');
+btnAge.addEventListener('click', function (){
+    let input = document.querySelector('div > input');
+    let userAge = parseInt(input.value);
 
+    if (userAge >= 18) {
+        let age18 = document.createElement('h2');
+        document.body.appendChild(age18);
+        age18.innerText = `Вам є 18 років`;
+    } else if (userAge < 18) {
+        let ageNot18 = document.createElement('h2');
+        document.body.appendChild(ageNot18);
+        ageNot18.innerText = `Ви не досягли 18 років`;
+    }
+})
 
 //
 // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
+
+
+
 //
 // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"
 // при перезавантаженні сторінки до значаення додається по 10грн, але !!!

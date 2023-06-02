@@ -145,7 +145,30 @@ btnAge.addEventListener('click', function (){
 //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 // (Додатковачастина для завдання)
 
+let formTable = document.table;
 
+formTable.addEventListener('submit', function (e){
+    e.preventDefault()
+    let column = document.getElementById('colomn').value;
+    let row = document.getElementById('row').value;
+    let text = document.getElementById('textTable').value;
+
+    let table = document.createElement('table');
+
+    for (let i = 0; i < row; i++) {
+        let tr = document.createElement('tr');
+
+        for (let j = 0; j < column; j++) {
+            let td = document.createElement('td');
+            td.textContent = text;
+            tr.appendChild(td);
+        }
+
+        table.appendChild(tr);
+    }
+
+    document.body.appendChild(table);
+})
 
 //
 // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"

@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (localStorage.getItem('number')) {
         let number = parseInt(localStorage.getItem('number'));
         let numberPlusOne = number + 1;
-        numberEl.innerText = numberPlusOne.toString();
-        localStorage.setItem('number', numberPlusOne.toString());
+        numberEl.innerText = JSON.stringify(numberPlusOne);
+        localStorage.setItem('number', JSON.stringify(numberPlusOne));
     } else {
         numberEl.innerText = '1';
         localStorage.setItem('number', '1');
@@ -187,12 +187,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (localStorage.getItem('money')) {
             let money = parseInt(localStorage.getItem('money'));
             let moneyPlus = number + 10;
-            moneyEl.innerText = moneyPlus.toString();
-            localStorage.setItem('money', moneyPlus.toString());
+            moneyEl.innerText = JSON.stringify(moneyPlus);
+            localStorage.setItem('money', JSON.stringify(moneyPlus));
         } else {
             moneyEl.innerText = '100';
             localStorage.setItem('money', '100');
         }
-        localStorage.setItem('time', dataAtMoment.toString());
+        localStorage.setItem('time', JSON.stringify(dataAtMoment));
     }
 });

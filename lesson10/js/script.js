@@ -12,8 +12,13 @@ form1.onsubmit = function (e) {
     let infoDiv = document.createElement('div');
     infoDiv.innerText = JSON.stringify(obj);
     document.body.appendChild(infoDiv);
+
+    this.firstname.value = '';
+    this.surname.value = '';
+    this.age.value = '';
+
     let btnForm = document.getElementById('btnForm');
-    btnForm.addEventListener('click', function (){
+    btnForm.addEventListener('click', function () {
         btnForm.disabled = true;
     })
 }
@@ -86,7 +91,6 @@ document.body.appendChild(btnDiv);
 
 let currentStartIndex = parseInt(localStorage.getItem('currentStartIndex')) || 0;
 
-
 document.addEventListener('DOMContentLoaded', function (e) {
     showElements(currentStartIndex);
 });
@@ -131,7 +135,7 @@ btnText.addEventListener('click', function () {
 //     та перевірити вік чи меньше він ніж 18, та повідомити про це користувача
 
 let btnAge = document.getElementById('buttonAge');
-btnAge.addEventListener('click', function (){
+btnAge.addEventListener('click', function () {
     let input = document.querySelector('div > input');
     let userAge = parseInt(input.value);
 
@@ -153,7 +157,7 @@ btnAge.addEventListener('click', function (){
 
 let formTable = document.table;
 
-formTable.addEventListener('submit', function (e){
+formTable.addEventListener('submit', function (e) {
     e.preventDefault()
     let column = document.getElementById('colomn').value;
     let row = document.getElementById('row').value;
@@ -182,14 +186,12 @@ formTable.addEventListener('submit', function (e){
 //     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
 //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
 
-
 document.addEventListener('DOMContentLoaded', function () {
-    let moneyEl = document.getElementById('money');
-
+    let moneyEl = document.getElementById('money')
     let data = localStorage.getItem('time');
     let dataAtMoment = new Date().getTime();
 
-    if (data && (dataAtMoment - parseInt(JSON.parse(data)) > 10000)) {
+    if (dataAtMoment - parseInt(data) > 10000) {
         if (localStorage.getItem('money')) {
             let money = parseInt(localStorage.getItem('money'));
             let moneyPlus = money + 10;

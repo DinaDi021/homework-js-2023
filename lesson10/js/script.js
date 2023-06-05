@@ -84,7 +84,8 @@ btnNext.innerText = 'next';
 btnDiv.append(btnPrev, btnNext);
 document.body.appendChild(btnDiv);
 
-let currentStartIndex = parseInt(localStorage.getItem('currentStartIndex'));
+let currentStartIndex = parseInt(localStorage.getItem('currentStartIndex')) || 0;
+
 
 document.addEventListener('DOMContentLoaded', function (e) {
     showElements(currentStartIndex);

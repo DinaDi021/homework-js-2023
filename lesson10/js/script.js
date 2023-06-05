@@ -12,6 +12,10 @@ form1.onsubmit = function (e) {
     let infoDiv = document.createElement('div');
     infoDiv.innerText = JSON.stringify(obj);
     document.body.appendChild(infoDiv);
+    let btnForm = document.getElementById('btnForm');
+    btnForm.addEventListener('click', function (){
+        btnForm.disabled = true;
+    })
 }
 
 // ==========================
@@ -81,6 +85,7 @@ btnDiv.append(btnPrev, btnNext);
 document.body.appendChild(btnDiv);
 
 let currentStartIndex = parseInt(localStorage.getItem('currentStartIndex'));
+
 document.addEventListener('DOMContentLoaded', function (e) {
     showElements(currentStartIndex);
 });
@@ -183,10 +188,10 @@ document.addEventListener('DOMContentLoaded', function () {
     let data = localStorage.getItem('time');
     let dataAtMoment = new Date().getTime();
 
-    if(dataAtMoment - parseInt(data) > 10000) {
+    if (data && (dataAtMoment - parseInt(JSON.parse(data)) > 10000)) {
         if (localStorage.getItem('money')) {
             let money = parseInt(localStorage.getItem('money'));
-            let moneyPlus = number + 10;
+            let moneyPlus = money + 10;
             moneyEl.innerText = JSON.stringify(moneyPlus);
             localStorage.setItem('money', JSON.stringify(moneyPlus));
         } else {

@@ -188,19 +188,22 @@ formTable.addEventListener('submit', function (e) {
 
 document.addEventListener('DOMContentLoaded', function () {
     let moneyEl = document.getElementById('money')
-    let data = localStorage.getItem('time');
+    let data = localStorage.getItem('time') || 0;
     let dataAtMoment = new Date().getTime();
 
     if (dataAtMoment - parseInt(data) > 10000) {
         if (localStorage.getItem('money')) {
             let money = parseInt(localStorage.getItem('money'));
             let moneyPlus = money + 10;
-            moneyEl.innerText = JSON.stringify(moneyPlus);
+            moneyEl.innerText = moneyPlus + ' грн';
             localStorage.setItem('money', JSON.stringify(moneyPlus));
         } else {
-            moneyEl.innerText = '100';
-            localStorage.setItem('money', '100');
+            moneyEl.innerText = '100 грн';
+            localStorage.setItem('money', JSON.stringify(100));
         }
         localStorage.setItem('time', JSON.stringify(dataAtMoment));
+    } else {
+        let money = parseInt(localStorage.getItem('money'));
+        moneyEl.innerText = money + ' грн';
     }
 });

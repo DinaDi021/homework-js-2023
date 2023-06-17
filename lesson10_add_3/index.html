@@ -6,8 +6,52 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lesson 10 Add</title>
+    <style>
+        label {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        .navigation {
+            display: none;
+            margin-bottom: 20px;
+        }
+
+
+    </style>
 </head>
 <body>
 
+<form name="word">
+    <label>Enter a word:<input type="text" name="wordInput" placeholder="asd"></label>
+    <button id="btnWord">Send</button>
+</form>
+
+<form name="sentence">
+    <label>Enter your sentence:<input type="text" name="sentenceInput" placeholder="your text ..."></label>
+    <button id="btnSentence">Send</button>
+</form>
+
+<div>
+    <button id="btnMenu">menu</button>
+    <ul class="navigation">
+        <li>about us</li>
+        <li>services</li>
+        <li>team</li>
+        <li>publications</li>
+        <li>contact</li>
+    </ul>
+</div>
+
+<br>
+<button id="btnHide">hide me</button>
+
+<script src="./js/script.js"></script>
 </body>
 </html>

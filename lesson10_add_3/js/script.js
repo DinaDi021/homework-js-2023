@@ -1,32 +1,131 @@
 // - Сворити масив не цензцрних слів.
+
+let arrObsceneWords = ['Вилупок', 'Курва', 'Наволоч', 'Покидьок', 'Блядь', 'Пизда', 'Їбати', 'Хуй', ]
+
 //     Сворити інпут текстового типу.
 //     Якщо людина вводить слово і воно міститься в масиві не цензурних слів
 // кинути алерт з попередженням.
 //     Перевірку робити при натисканні на кнопку
-//
-//
+
+let form1 = document.word;
+let btnForm = document.getElementById('btnWord');
+
+btnForm.addEventListener( "click", function (e){
+    e.preventDefault()
+    let formWord = form1.wordInput.value.trim();
+
+    if (arrObsceneWords.includes(formWord)) {
+        alert('Error, please enter correct word')
+    } else {
+        let message = document.createElement('h3');
+        message.innerText = 'Successfully sent';
+        document.body.appendChild(message);
+        btnForm.disabled = true;
+        form1.wordInput.value = '';
+
+    }
+} )
+
 // - Сворити масив не цензцрних слів.
 //     Сворити інпут текстового типу.
 //     Потрібно перевіряти чи не містить ціле речення в собі погані слова.
 //     Кинути алерт з попередженням у випадку якщо містить.
 //     Перевірку робити при натисканні на кнопку
-//
-//
-//
-//
+
+let form2 = document.sentence;
+let btnSentence = document.getElementById('btnSentence');
+btnSentence.addEventListener( 'click', function (e){
+    e.preventDefault()
+    let formWord = form2.sentenceInput.value.trim();
+
+    let obsceneWord = false;
+    arrObsceneWords.forEach(function (value) {
+        if (formWord.includes(value)) {
+            obsceneWord = true;
+        }
+    })
+
+    if (obsceneWord) {
+        alert('Error, please enter correct word')
+    } else {
+        let message = document.createElement('h3');
+        message.innerText = 'Successfully sent';
+        document.body.appendChild(message);
+        btnSentence.disabled = true;
+        form2.sentenceInput.value = '';
+    }
+} )
+
 // - Создайте меню, которое раскрывается/сворачивается при клике
-//
-//
+
+let btnMenu = document.getElementById('btnMenu');
+let classNavigation = document.getElementsByClassName('navigation')[0];
+
+btnMenu.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (classNavigation.style.display === 'none') {
+        classNavigation.style.display = 'block';
+    } else {
+        classNavigation.style.display = 'none';
+    }
+})
+
 // - Создать список комментариев , пример объекта коментария - {title : 'lorem', body:'lorem ipsum dolo sit ameti'}.
 //     Вывести список комментариев в документ, каждый в своем блоке.
 //     Добавьте каждому комментарию по кнопке для сворачивания его body.
-//
-//
+
+let divContent = document.createElement('div');
+divContent.classList.add('comment');
+
+let arrComment = [
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+    {title : 'lorem', body:'lorem ipsum dolo sit ameti'},
+]
+
+for (const item of arrComment) {
+    let ul = document.createElement('ul');
+    let liTitle = document.createElement('li');
+    liTitle.innerText = item.title;
+    let liBody = document.createElement('li')
+    liBody.innerText = item.body;
+    liBody.style.display = 'block';
+    let liBtn = document.createElement('button');
+    liBtn.innerText = `Comment`;
+
+    liBtn.addEventListener('click', function (e){
+        e.preventDefault();
+
+        if (liBody.style.display === 'block') {
+            liBody.style.display = 'none';
+
+        } else {
+            liBody.style.display = 'block'
+        }
+    })
+
+    ul.append(liTitle, liBody, liBtn);
+    divContent.appendChild(ul);
+}
+
+document.body.appendChild(divContent);
+
+
 // - Создайте кнопку, при клике на которую, она будет скрывать сама себя.
-//
-//
-//
-//
+
+let btnHide = document.getElementById('btnHide');
+
+btnHide.addEventListener( 'click', function (e){
+    e.preventDefault();
+    btnHide.style.visibility = 'hidden';
+})
+
 // - Описати скріпт, котрий, якщо доєднати до будь-якої сторінки дозволить зробити наступне:
 //     При лівому кліку миші вивести в консоль інформацію про блок або елемент на який відбувся клік.
 //     Інформація яку потрібно вивести: Назва тегу, список класів, список ід, розміри в форматі висота*ширина

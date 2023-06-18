@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Lesson 10 Add</title>
     <style>
-        label {
+        .form {
             width: fit-content;
             display: flex;
             flex-direction: column;
@@ -23,18 +23,26 @@
             margin-bottom: 20px;
         }
 
+        #btnHide {
+            margin-bottom: 20px;
+        }
+
+        .comment {
+            margin-bottom: 20px;
+        }
+
 
     </style>
 </head>
 <body>
 
 <form name="word">
-    <label>Enter a word:<input type="text" name="wordInput" placeholder="asd"></label>
+    <label class="form">Enter a word:<input type="text" name="wordInput" placeholder="asd"></label>
     <button id="btnWord">Send</button>
 </form>
 
 <form name="sentence">
-    <label>Enter your sentence:<input type="text" name="sentenceInput" placeholder="your text ..."></label>
+    <label class="form">Enter your sentence:<input type="text" name="sentenceInput" placeholder="your text ..."></label>
     <button id="btnSentence">Send</button>
 </form>
 
@@ -51,6 +59,15 @@
 
 <br>
 <button id="btnHide">hide me</button>
+
+<form name="filter">
+    <label class="checkbox status">
+        <label for="status"><input id="status" type="checkbox" name="checkbox">Status: false</label>
+        <label for="age"><input id="age" type="checkbox" name="checkbox">Age over 29</label>
+        <label for="city"><input id="city" type="checkbox" name="checkbox">City - Kyiv</label>
+    </label>
+    <button id="filter" type="button">Filter</button>
+</form>
 
 <script src="./js/script.js"></script>
 </body>

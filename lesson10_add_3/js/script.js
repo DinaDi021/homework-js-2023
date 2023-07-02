@@ -244,9 +244,19 @@ btnFIlter.addEventListener('click', function () {
 // НО если у (какого-либо)дочеренего элемента есть дети, то нажатие "вперед" позволяет нам войти внутрь элемента и  выводит первого ребенка. и тд.
 //     Когда все дети заканчиваются, мы выходим из данного дочернего элемента и переходим к следующему, лежащему с ним на одном уровне
 
+btnPrev.addEventListener('click', function () {
+    let images = document.querySelectorAll('.slide img');
+    let currentImage = document.querySelector('.slide img.sl.z-index');
+
+    let currentIndex = Array.from(images).indexOf(currentImage);
+    let prevIndex = (currentIndex - 1 + images.length) % images.length;
+
+    currentImage.classList.remove('z-index');
+    images[prevIndex].classList.add('z-index');
+});
 
 
-// - Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+
 //
 //     Завдання важке для розуміння, але дуже легке в реалізації. Тут треба буде погуглити
 // *** При виділені сегменту тексту на сторінці він стає жирний/курсивний/або якось іншим способом змінює свій стан
